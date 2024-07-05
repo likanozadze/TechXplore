@@ -5,7 +5,9 @@
 //  Created by Lika Nozadze on 7/5/24.
 //
 
+
 import SwiftUI
+import Lottie
 
 struct ProjectDetailView: View {
     let project: Project
@@ -13,6 +15,7 @@ struct ProjectDetailView: View {
     @ObservedObject var viewModel: ProjectDetailViewModel
     @State private var investAmount: String = ""
     @State private var isExpanded: Bool = false
+    @State private var isInvesting = false
     
     var body: some View {
         ScrollView {
@@ -108,37 +111,48 @@ struct ProjectDetailView: View {
             // MARK: - Investment Section
             if TokenManager.shared.token != nil {
                 if viewModel.isAuthorized {
-                    HStack {
-                        TextField("Enter amount", text: $investAmount)
-                            .padding()
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .foregroundColor(.darkgray)
-                        Text("Your Share: \(String(format: "%.2f", viewModel.totalSharePercentage))%")
-                            .foregroundColor(.darkgray)
-                        
-                    }
-                    Button(action: {
-                        guard let amount = Double(self.investAmount) else {
-                            print("Invalid amount")
-                            return
-                        }
-                        
-                        viewModel.invest(amount: amount) { result in
-                            switch result {
-                            case .success:
-                                print("Investment successful")
-                            case .failure(let error):
-                                print("Investment failed: \(error.localizedDescription)")
+                    Group {
+                        if isInvesting {
+                            LottieView(filename: "Animation - 1720201013725")
+                                .frame(width: 100, height: 100)
+                                .padding()
+                        } else {
+                            HStack {
+                                TextField("Enter amount", text: $investAmount)
+                                    .padding()
+                                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                                    .foregroundColor(.darkgray)
+                                
+                                Text("Your Share: \(String(format: "%.2f", viewModel.totalSharePercentage))%")
+                                    .foregroundColor(.darkgray)
+                            }
+                            Button(action: {
+                                guard let amount = Double(self.investAmount) else {
+                                    print("Invalid amount")
+                                    return
+                                }
+                                
+                                self.isInvesting = true
+                                
+                                viewModel.invest(amount: amount) { result in
+                                    self.isInvesting = false
+                                    switch result {
+                                    case .success:
+                                        print("Investment successful")
+                                    case .failure(let error):
+                                        print("Investment failed: \(error.localizedDescription)")
+                                    }
+                                }
+                            }) {
+                                Text("Invest")
+                                    .font(.headline)
+                                    .padding()
+                                    .frame(maxWidth: .infinity)
+                                    .background(Color.blue)
+                                    .foregroundColor(.white)
+                                    .cornerRadius(10)
                             }
                         }
-                    }) {
-                        Text("Invest")
-                            .font(.headline)
-                            .padding()
-                            .frame(maxWidth: .infinity)
-                            .background(Color.blue)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
                     }
                 } else {
                     Text("Please login to invest in this project.")
