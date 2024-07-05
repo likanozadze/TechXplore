@@ -15,12 +15,12 @@ struct RegisterView: View {
     @State private var lastName = ""
     @State private var password = ""
     @State private var confirmPassword = ""
-    @State private var showAlert = false
     @State private var containsCapitalLetter = false
     @State private var containsNumber = false
     @State private var containsSymbol = false
     @State private var isValidSize = false
     @State private var isValidEmail = false
+    
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var navigationManager: NavigationManager
     var body: some View {
@@ -32,17 +32,6 @@ struct RegisterView: View {
             Spacer()
             signInButton
         }
-        .alert(isPresented: $showAlert) {
-            Alert(
-                title: Text("Success"),
-                message: Text("You've registered successfully, you can sign in from the login page"),
-                dismissButton: .default(Text("OK"))
-                {
-                    dismiss()
-                }
-            )
-        }
-        
     }
     
     
@@ -64,9 +53,9 @@ struct RegisterView: View {
                           placeholder: "name@gmail.com")
             .textInputAutocapitalization(.never)
             .onChange(of: email) { _, _ in
-                 validateEmail()
+                validateEmail()
             }
-
+            
             TextFieldView(text: $firstName,
                           title: "First Name",
                           placeholder: "Enter your name")
@@ -80,7 +69,7 @@ struct RegisterView: View {
                           placeholder: "Enter your password",
                           isSecureField: true)
             .onChange(of: password) { _, _ in
-               validatePassword()
+                validatePassword()
             }
             
             confirmPasswordField
@@ -88,6 +77,7 @@ struct RegisterView: View {
         .padding(.horizontal)
         .padding(.top, 2)
     }
+    
     private var confirmPasswordField: some View {
         ZStack(alignment: .trailing) {
             TextFieldView(text: $confirmPassword,
@@ -127,7 +117,7 @@ struct RegisterView: View {
     private var registerButton: some View {
         VStack(spacing: 20) {
             Button {
-    
+                
             } label: {
                 PrimaryButtonView(
                     text: "Register",
@@ -150,7 +140,7 @@ struct RegisterView: View {
             .font(.system(size: 14))
         }
     }
-
+    
     
     func validatePassword() {
         containsCapitalLetter = password.range(of: "[A-Z]", options: .regularExpression) != nil

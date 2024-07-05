@@ -70,11 +70,11 @@ struct LoginView: View {
               viewModel.login(email: email, password: password, completion: {_ in}, navigationManager: navigationManager)
                //navigationManager.currentDestination = .mainView
             } label: {
-//              //  PrimaryButtonView(
-//                    text: "Log In",
-//                    textColor: .white,
-//                    backgroundColor: .main
-               // )
+                PrimaryButtonView(
+                    text: "Log In",
+                    textColor: .white,
+                    backgroundColor: .main
+                )
             }
         }
     }
