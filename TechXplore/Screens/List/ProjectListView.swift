@@ -7,13 +7,17 @@
 
 import SwiftUI
 
+// MARK: - Properties
+
 struct ProjectListView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var viewModel: ProjectListViewModel
     
     var body: some View {
         List(viewModel.projects) { project in
-            NavigationLink(destination: ProjectDetailView(project: project, viewModel: ProjectDetailViewModel(project: project))) {
+            NavigationLink(destination: ProjectDetailView(project: project,
+                                                          viewModel: ProjectDetailViewModel(project: project)))
+            {
                 ProjectRowView(project: project)
             }
         }
@@ -60,7 +64,7 @@ struct ProjectRowView: View {
                         Text("\(project.requiredBudget)")
                             .foregroundColor(.gray)
                     }
-                    Divider().padding(.vertical, 4) 
+                    Divider().padding(.vertical, 4)
                     
                     VStack {
                         Text("Accumulated")
@@ -69,12 +73,9 @@ struct ProjectRowView: View {
                             .foregroundColor(.green)
                     }
                 }
-            
+                
             }
         }
-        }
-       // .padding()
-        
     }
-    
+}
 

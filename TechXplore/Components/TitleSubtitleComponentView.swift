@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct TitleSubtitleComponentView: View {
+    // MARK: - Properties
     
     var title: String
     var titleFont: CGFloat
     var alignmentAxe: HorizontalAlignment
     var titleWeight: Font.Weight
     var subTitleWeight: Font.Weight
+    
+    // MARK: - Body
     
     var body: some View {
         VStack(alignment: alignmentAxe) {

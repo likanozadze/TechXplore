@@ -8,8 +8,11 @@
 import Foundation
 
 class LoginViewModel: ObservableObject {
+    // MARK: - Published Properties
     @Published var isLoading: Bool = false
     @Published var error: String? = nil
+    
+    // MARK: - Initializer
     
     public init() { }
 

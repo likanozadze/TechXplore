@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct RegisterView: View {
+    
     // MARK: - Properties
     @State private var personalNumber = ""
     @State private var email = ""
@@ -23,6 +24,8 @@ struct RegisterView: View {
     
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var navigationManager: NavigationManager
+    
+    // MARK: - Body
     var body: some View {
         VStack {
             signUpText
@@ -34,7 +37,7 @@ struct RegisterView: View {
         }
     }
     
-    
+    // MARK: - View Components
     private var signUpText: some View {
         Text("Sign Up")
             .font(.system(size: 26))

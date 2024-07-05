@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProjectComponentView: View {
     
-    // MARK: - Components
+    // MARK: - Properties
     
     var projectName: String
     var creationDate: Date

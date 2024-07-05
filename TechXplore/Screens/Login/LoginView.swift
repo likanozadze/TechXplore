@@ -16,6 +16,8 @@ struct LoginView: View {
     @EnvironmentObject var navigationManager: NavigationManager
     @StateObject private var viewModel = LoginViewModel()
     
+    // MARK: - Body
+    
     var body: some View {
         VStack {
             mainVStack

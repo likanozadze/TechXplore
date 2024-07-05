@@ -9,13 +9,20 @@ import Foundation
 import SwiftUI
 
 final class ProjectDetailViewModel: ObservableObject {
+    
+    // MARK: - Published Properties
+    
     @Published var projectImages: [String]
     @Published var selectedImageIndex = 0
-    private var project: Project
     @Published var projectImage: UIImage?
     @Published var totalSharePercentage: Double = 0
     @Published var shares: [Share] = []
+    
+    // MARK: - Private Properties
+    private var project: Project
     private let networkManager = NetworkManager.shared
+    
+    // MARK: - Initializer
     
     init(project: Project) {
         self.project = project
@@ -24,10 +31,12 @@ final class ProjectDetailViewModel: ObservableObject {
         fetchUserShares()
     }
     
+    // MARK: - Computed Properties
     var isAuthorized: Bool {
         return TokenManager.shared.token != nil
     }
     
+    // MARK: - Methods
     private func fetchProjectImage() {
         guard let imageUrl = project.images.first?.url else {
             print("No image URL found for the project")
@@ -95,16 +104,12 @@ final class ProjectDetailViewModel: ObservableObject {
             if let jwtToken = TokenManager.shared.token {
                 request.setValue("Bearer \(jwtToken)", forHTTPHeaderField: "Authorization")
             }
-            
             request.httpBody = jsonData
             
             networkManager.fetch(url: investUrl, request: request) { result in
                 switch result {
                 case .success:
-               
                     self.project.currentBudget += Int(amount)
-                    
-                    
                     completion(.success(()))
                 case .failure(let error):
                    

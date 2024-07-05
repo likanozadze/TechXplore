@@ -42,9 +42,7 @@ class ProjectListViewModel: ObservableObject {
         }
     }
     
-   
-    
-    private func fetchProjectImages() {
+   private func fetchProjectImages() {
           for project in projects {
               if let firstImageURL = project.images.first?.url,
                  let encodedImageUrl = firstImageURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),

@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import SwiftUI
+
 struct ProjectDetailView: View {
     let project: Project
     
@@ -16,6 +18,8 @@ struct ProjectDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
+                
+                // MARK: - Project Image
                 if let image = viewModel.projectImage {
                     Image(uiImage: image)
                         .resizable()
@@ -24,8 +28,10 @@ struct ProjectDetailView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                 }
                 
+                // MARK: - Image Carousel
                 ImageCarouselComponentView(images: viewModel.projectImages)
                 
+                // MARK: - Project Description
                 VStack(alignment: .leading, spacing: 10) {
                     Text("Project description")
                         .font(.system(size: 14))
@@ -46,6 +52,7 @@ struct ProjectDetailView: View {
                 }
                 .padding()
                 
+                // MARK: - Project Financial Information
                 VStack {
                     HStack {
                         Text("Required Budget")
@@ -62,6 +69,7 @@ struct ProjectDetailView: View {
                     Text("Your Share: \(viewModel.totalSharePercentage)%")
                         .foregroundColor(.blue)
                     
+                    // MARK: - Investment Section
                     if TokenManager.shared.token != nil {
                         if viewModel.isAuthorized {
                             TextField("Enter amount", text: $investAmount)
@@ -107,10 +115,9 @@ struct ProjectDetailView: View {
         }
     }
     
+    // MARK: - Helper Functions
     private func shouldShowMoreButton(for text: String) -> Bool {
-       
         let lines = text.components(separatedBy: "\n")
         return lines.count > 4
     }
 }
-

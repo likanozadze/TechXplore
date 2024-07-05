@@ -17,20 +17,27 @@ struct MainView: View {
     
     var body: some View {
         ScrollView(showsIndicators: false) {
-      if let error = viewModel.error {
+            
+            // MARK: - Error Handling
+            if let error = viewModel.error {
                 Text("Error: \(error.localizedDescription)")
                     .foregroundColor(.red)
                     .padding()
             } else {
+                
+                // MARK: - Header
                 Text("Companies")
                     .font(.title)
                     .padding(.top)
+                
+                // MARK: - Company List Grid
                 LazyVGrid(columns: columns) {
                     ForEach(viewModel.companies) { company in
                         NavigationLink(destination: ProjectListView(viewModel: ProjectListViewModel(companyID: company.id))) {
                             ProjectComponentView(
                                 projectName: company.name,
-                                creationDate: company.creationDate, business: company
+                                creationDate: company.creationDate,
+                                business: company
                             )
                         }
                     }
@@ -39,6 +46,8 @@ struct MainView: View {
         }
         
         .padding(.horizontal)
+        
+        // MARK: - Fetch Data on Appear
         .onAppear {
             viewModel.fetchCompanies()
         }
