@@ -20,7 +20,7 @@ struct ContentView: View {
                 RegisterView()
                     .environmentObject(navigationManager)
             case .mainView:
-                RegisterView()
+                MainView()
                     .environmentObject(navigationManager)
             }
         }
