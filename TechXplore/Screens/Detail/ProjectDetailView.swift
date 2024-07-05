@@ -24,7 +24,7 @@ struct ProjectDetailView: View {
                         .frame(width: UIScreen.main.bounds.width, height: 200)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                 }
-                //ImageCarouselComponentView(images: viewModel.projectImages)
+                ImageCarouselComponentView(images: viewModel.projectImages)
                 
                 VStack(alignment: .leading, spacing: 10) {
                     Text(project.description)
