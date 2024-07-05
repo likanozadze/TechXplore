@@ -12,6 +12,15 @@
 		98AA477E2C3823C4007E3E14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98AA477D2C3823C4007E3E14 /* Assets.xcassets */; };
 		98AA47812C3823C4007E3E14 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98AA47802C3823C4007E3E14 /* Preview Assets.xcassets */; };
 		98AA47882C382742007E3E14 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AA47872C382742007E3E14 /* LoginView.swift */; };
+		98AA478D2C3827AC007E3E14 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AA478C2C3827AC007E3E14 /* LoginViewModel.swift */; };
+		98AA47902C3827EB007E3E14 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AA478F2C3827EB007E3E14 /* NetworkManager.swift */; };
+		98AA47932C382838007E3E14 /* TitleSubtitleComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AA47922C382838007E3E14 /* TitleSubtitleComponentView.swift */; };
+		98AA47952C382849007E3E14 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AA47942C382849007E3E14 /* TextFieldView.swift */; };
+		98AA47972C382871007E3E14 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AA47962C382871007E3E14 /* NavigationManager.swift */; };
+		98AA47992C38289B007E3E14 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AA47982C38289B007E3E14 /* TokenManager.swift */; };
+		98AA479B2C3828ED007E3E14 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AA479A2C3828ED007E3E14 /* RegisterView.swift */; };
+		98AA479D2C382943007E3E14 /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AA479C2C382943007E3E14 /* PasswordView.swift */; };
+		98AA479F2C382957007E3E14 /* PrimaryButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AA479E2C382957007E3E14 /* PrimaryButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +30,15 @@
 		98AA477D2C3823C4007E3E14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		98AA47802C3823C4007E3E14 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		98AA47872C382742007E3E14 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		98AA478C2C3827AC007E3E14 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		98AA478F2C3827EB007E3E14 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		98AA47922C382838007E3E14 /* TitleSubtitleComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSubtitleComponentView.swift; sourceTree = "<group>"; };
+		98AA47942C382849007E3E14 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
+		98AA47962C382871007E3E14 /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
+		98AA47982C38289B007E3E14 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
+		98AA479A2C3828ED007E3E14 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		98AA479C2C382943007E3E14 /* PasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
+		98AA479E2C382957007E3E14 /* PrimaryButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +74,8 @@
 				98AA47792C3823C2007E3E14 /* TechXploreApp.swift */,
 				98AA477B2C3823C2007E3E14 /* ContentView.swift */,
 				98AA478B2C382761007E3E14 /* Screens */,
+				98AA478E2C3827D3007E3E14 /* Managers */,
+				98AA47912C382820007E3E14 /* Components */,
 				98AA477D2C3823C4007E3E14 /* Assets.xcassets */,
 				98AA477F2C3823C4007E3E14 /* Preview Content */,
 			);
@@ -74,6 +94,8 @@
 			isa = PBXGroup;
 			children = (
 				98AA47872C382742007E3E14 /* LoginView.swift */,
+				98AA478C2C3827AC007E3E14 /* LoginViewModel.swift */,
+				98AA479A2C3828ED007E3E14 /* RegisterView.swift */,
 			);
 			path = login;
 			sourceTree = "<group>";
@@ -84,6 +106,27 @@
 				98AA47892C38274B007E3E14 /* login */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		98AA478E2C3827D3007E3E14 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				98AA478F2C3827EB007E3E14 /* NetworkManager.swift */,
+				98AA47962C382871007E3E14 /* NavigationManager.swift */,
+				98AA47982C38289B007E3E14 /* TokenManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		98AA47912C382820007E3E14 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				98AA47922C382838007E3E14 /* TitleSubtitleComponentView.swift */,
+				98AA47942C382849007E3E14 /* TextFieldView.swift */,
+				98AA479C2C382943007E3E14 /* PasswordView.swift */,
+				98AA479E2C382957007E3E14 /* PrimaryButtonView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,7 +199,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98AA478D2C3827AC007E3E14 /* LoginViewModel.swift in Sources */,
+				98AA479D2C382943007E3E14 /* PasswordView.swift in Sources */,
+				98AA479B2C3828ED007E3E14 /* RegisterView.swift in Sources */,
+				98AA47992C38289B007E3E14 /* TokenManager.swift in Sources */,
+				98AA47952C382849007E3E14 /* TextFieldView.swift in Sources */,
+				98AA479F2C382957007E3E14 /* PrimaryButtonView.swift in Sources */,
 				98AA47882C382742007E3E14 /* LoginView.swift in Sources */,
+				98AA47932C382838007E3E14 /* TitleSubtitleComponentView.swift in Sources */,
+				98AA47902C3827EB007E3E14 /* NetworkManager.swift in Sources */,
+				98AA47972C382871007E3E14 /* NavigationManager.swift in Sources */,
 				98AA477C2C3823C2007E3E14 /* ContentView.swift in Sources */,
 				98AA477A2C3823C2007E3E14 /* TechXploreApp.swift in Sources */,
 			);
