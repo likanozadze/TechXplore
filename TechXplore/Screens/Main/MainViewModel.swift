@@ -41,9 +41,8 @@ class MainViewModel: ObservableObject {
     private func fetchImagesForBusinesses() {
         let baseUrl = "https://ideaxapp.azurewebsites.net/v1/Image/"
         for (index, business) in companies.enumerated() {
-            let imageUrlString = business.image.url // Assuming this is the image identifier
+            let imageUrlString = business.image.url
             
-            // Prepend base URL to the image identifier
             let fullImageUrlString = baseUrl + imageUrlString
             print("Original image URL string: \(imageUrlString)")
             print("Full image URL string: \(fullImageUrlString)")

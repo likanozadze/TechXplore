@@ -15,7 +15,7 @@ struct ProjectComponentView: View {
     var creationDate: Date
     var business: Business
     @State private var businessImage: UIImage?
-    
+    @State private var isLoadingImage = true 
     
     private var formattedCreationDate: String {
         let formatter = DateFormatter()
@@ -26,25 +26,32 @@ struct ProjectComponentView: View {
     // MARK: - Body
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
-            
             travelImageView
             titleSubtitleView
             creationDateLabel
         }
-        
         .padding(10)
-        .background(.font)
+        .background(Color.gray.opacity(0.2))
         .clipShape(RoundedRectangle(cornerRadius: 12))
         .lineLimit(1)
         .truncationMode(.tail)
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                isLoadingImage = false
+            }
+        }
     }
     
     // MARK: - ImageView
     
     private var travelImageView: some View {
-        VStack {
-            
-            if let businessImage = business.businessImage {
+        Group {
+            if isLoadingImage {
+                Rectangle()
+                    .foregroundColor(.gray.opacity(0.3))
+                    .cornerRadius(10)
+                    .frame(height: 100)
+            } else if let businessImage = business.businessImage {
                 Image(uiImage: businessImage)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
@@ -83,5 +90,5 @@ struct ProjectComponentView: View {
 }
 
 //#Preview {
-//    ProjectComponentView(imageName: "building", projectName: "არქი", creationDate: Date())
+//    ProjectComponentView(projectName: "არქი", creationDate: Date(), business: Business())
 //}

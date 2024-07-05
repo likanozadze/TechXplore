@@ -23,6 +23,7 @@ final class NetworkManager {
     func fetch<T: Decodable>(url: URL, responseType: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
         var request = URLRequest(url: url)
         request.setValue("application/json", forHTTPHeaderField: "Accept")
+        
         if let jwtToken = TokenManager.shared.token {
                       request.setValue("Bearer \(jwtToken)", forHTTPHeaderField: "Authorization")
                   }
@@ -83,7 +84,7 @@ final class NetworkManager {
                     
                     switch httpResponse.statusCode {
                     case 200:
-                        completion(.success(())) // Success without returning any data
+                        completion(.success(()))
                     case 404:
                         completion(.failure(NetworkError.notFound))
                     case 500:

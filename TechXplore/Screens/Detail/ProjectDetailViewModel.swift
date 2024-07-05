@@ -105,14 +105,31 @@ final class ProjectDetailViewModel: ObservableObject {
                 request.setValue("Bearer \(jwtToken)", forHTTPHeaderField: "Authorization")
             }
             request.httpBody = jsonData
-            
+            //
+            //            networkManager.fetch(url: investUrl, request: request) { result in
+            //                switch result {
+            //                case .success:
+            //                    self.project.currentBudget += Int(amount)
+            //                    completion(.success(()))
+            //                case .failure(let error):
+            //
+            //                    completion(.failure(error))
+            //                }
+            //            }
+            //        } catch {
+            //            completion(.failure(error))
+            //        }
+            //    }
+            //}
             networkManager.fetch(url: investUrl, request: request) { result in
                 switch result {
                 case .success:
-                    self.project.currentBudget += Int(amount)
+                    DispatchQueue.main.async {
+                        self.project.currentBudget += Int(amount)
+                        self.totalSharePercentage += amount  // Assuming this updates a percentage value
+                    }
                     completion(.success(()))
                 case .failure(let error):
-                   
                     completion(.failure(error))
                 }
             }

@@ -69,8 +69,8 @@ struct LoginView: View {
     private var loginButton: some View {
         VStack(spacing: 20) {
             Button {
-            //  viewModel.login(email: email, password: password, completion: {_ in}, navigationManager: navigationManager)
-               navigationManager.currentDestination = .mainView
+             viewModel.login(email: email, password: password, completion: {_ in}, navigationManager: navigationManager)
+               //navigationManager.currentDestination = .mainView
             } label: {
                 PrimaryButtonView(
                     text: "Log In",
