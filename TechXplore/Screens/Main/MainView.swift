@@ -12,21 +12,17 @@ struct MainView: View {
     @StateObject private var viewModel = MainViewModel()
     
     let columns = [
-        GridItem(.flexible()),
         GridItem(.flexible())
     ]
     
     var body: some View {
-        ScrollView {
-//            if viewModel.isLoading {
-//                ProgressView("Loading...")
-//                    .padding()
+        ScrollView(showsIndicators: false) {
       if let error = viewModel.error {
                 Text("Error: \(error.localizedDescription)")
                     .foregroundColor(.red)
                     .padding()
             } else {
-                Text("Construction companies")
+                Text("Companies")
                     .font(.title)
                     .padding(.top)
                 LazyVGrid(columns: columns) {
@@ -41,6 +37,7 @@ struct MainView: View {
                 }
             }
         }
+        
         .padding(.horizontal)
         .onAppear {
             viewModel.fetchCompanies()

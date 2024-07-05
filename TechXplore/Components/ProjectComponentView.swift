@@ -10,7 +10,7 @@ import SwiftUI
 struct ProjectComponentView: View {
     
     // MARK: - Components
-
+    
     var projectName: String
     var creationDate: Date
     var business: Business
@@ -37,34 +37,33 @@ struct ProjectComponentView: View {
         .clipShape(RoundedRectangle(cornerRadius: 12))
         .lineLimit(1)
         .truncationMode(.tail)
-        .frame(width: 140, height: 180)
     }
     
     // MARK: - ImageView
-
+    
     private var travelImageView: some View {
         VStack {
-           
+            
             if let businessImage = business.businessImage {
                 Image(uiImage: businessImage)
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 120, height: 100)
-                            .cornerRadius(10)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(height: 100)
+                    .cornerRadius(10)
             } else {
-                        Image("building")
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 120, height: 100)
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                    }
-                }
+                Image("building")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(height: 100)
+                    .cornerRadius(10)
             }
-   
+        }
+    }
+    
     private var titleSubtitleView: some View {
         TitleSubtitleComponentView(
             title: projectName,
-            titleFont: 12,
+            titleFont: 14,
             alignmentAxe: .leading,
             titleWeight: .semibold,
             subTitleWeight: .light
@@ -76,10 +75,10 @@ struct ProjectComponentView: View {
     // MARK: - Creation Date Label
     private var creationDateLabel: some View {
         Text("Created on: \(formattedCreationDate)")
-            .font(.system(size: 10, weight: .semibold))
+            .font(.system(size: 12, weight: .semibold))
             .foregroundColor(.gray)
             .lineLimit(1)
-                   .truncationMode(.tail)
+            .truncationMode(.tail)
     }
 }
 

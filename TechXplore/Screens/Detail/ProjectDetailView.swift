@@ -6,13 +6,12 @@
 //
 
 import SwiftUI
-
 struct ProjectDetailView: View {
     let project: Project
     
     @ObservedObject var viewModel: ProjectDetailViewModel
     @State private var investAmount: String = ""
-    
+    @State private var isExpanded: Bool = false
     
     var body: some View {
         ScrollView {
@@ -24,31 +23,48 @@ struct ProjectDetailView: View {
                         .frame(width: UIScreen.main.bounds.width, height: 200)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                 }
+                
                 ImageCarouselComponentView(images: viewModel.projectImages)
                 
                 VStack(alignment: .leading, spacing: 10) {
+                    Text("Project description")
+                        .font(.system(size: 14))
+                        .fontWeight(.bold)
                     Text(project.description)
                         .font(.system(size: 16))
-                    Text("Required Budget: \(project.requiredBudget)")
-                        .foregroundColor(.gray)
-                    Text("Current Budget: \(project.currentBudget)")
-                        .foregroundColor(.green)
-              
+                        .lineLimit(isExpanded ? nil : 4)
+                        .padding(.bottom, 10)
                     
-                    if viewModel.shares.isEmpty {
-                                        Text("No shares available")
-                                            .foregroundColor(.gray)
-                                            .padding(.top, 10)
-                                    } else {
-                                        Text("Your Share: \(viewModel.totalSharePercentage)%")
-                                            .foregroundColor(.blue)
-                                            .padding(.top, 10)
-                                    
-                                    }
+                    if shouldShowMoreButton(for: project.description) {
+                        Button(action: {
+                            isExpanded.toggle()
+                        }) {
+                            Text(isExpanded ? "Less" : "More")
+                                .foregroundColor(.black)
+                        }
+                    }
+                }
+                .padding()
+                
+                VStack {
+                    HStack {
+                        Text("Required Budget")
+                            .foregroundColor(.gray)
+                        Text("\(project.requiredBudget)")
+                            .foregroundColor(.gray)
+                        Divider().padding(.vertical, 10)
+                            .bold()
+                        Text("Current: \(project.currentBudget)")
+                            .foregroundColor(.green)
+                    }
+                    Divider().padding(.vertical, 10)
+                        .bold()
+                    Text("Your Share: \(viewModel.totalSharePercentage)%")
+                        .foregroundColor(.blue)
                     
                     if TokenManager.shared.token != nil {
                         if viewModel.isAuthorized {
-                            TextField("Enter amount to invest", text: $investAmount)
+                            TextField("Enter amount", text: $investAmount)
                                 .padding()
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                             
@@ -61,11 +77,9 @@ struct ProjectDetailView: View {
                                 viewModel.invest(amount: amount) { result in
                                     switch result {
                                     case .success:
-                                        
                                         print("Investment successful")
                                     case .failure(let error):
                                         print("Investment failed: \(error.localizedDescription)")
-                                     
                                     }
                                 }
                             }) {
@@ -77,20 +91,26 @@ struct ProjectDetailView: View {
                                     .foregroundColor(.white)
                                     .cornerRadius(10)
                             }
-                            .padding()
                         } else {
                             Text("Please login to invest in this project.")
                                 .foregroundColor(.red)
-                                .padding()
                         }
                     }
                 }
-                .padding(.horizontal)
-                .navigationTitle(project.name)
+                .padding()
             }
-            .onAppear {
-                viewModel.fetchUserShares() // Ensure shares are fetched when view appears
-            }
+            .padding()
+            .navigationTitle(project.name)
+        }
+        .onAppear {
+            viewModel.fetchUserShares()
         }
     }
+    
+    private func shouldShowMoreButton(for text: String) -> Bool {
+       
+        let lines = text.components(separatedBy: "\n")
+        return lines.count > 4
+    }
 }
+
