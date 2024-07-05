@@ -11,6 +11,7 @@
 		98AA477C2C3823C2007E3E14 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AA477B2C3823C2007E3E14 /* ContentView.swift */; };
 		98AA477E2C3823C4007E3E14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98AA477D2C3823C4007E3E14 /* Assets.xcassets */; };
 		98AA47812C3823C4007E3E14 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98AA47802C3823C4007E3E14 /* Preview Assets.xcassets */; };
+		98AA47882C382742007E3E14 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AA47872C382742007E3E14 /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		98AA477B2C3823C2007E3E14 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		98AA477D2C3823C4007E3E14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		98AA47802C3823C4007E3E14 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		98AA47872C382742007E3E14 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				98AA47792C3823C2007E3E14 /* TechXploreApp.swift */,
 				98AA477B2C3823C2007E3E14 /* ContentView.swift */,
+				98AA478B2C382761007E3E14 /* Screens */,
 				98AA477D2C3823C4007E3E14 /* Assets.xcassets */,
 				98AA477F2C3823C4007E3E14 /* Preview Content */,
 			);
@@ -65,6 +68,22 @@
 				98AA47802C3823C4007E3E14 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		98AA47892C38274B007E3E14 /* login */ = {
+			isa = PBXGroup;
+			children = (
+				98AA47872C382742007E3E14 /* LoginView.swift */,
+			);
+			path = login;
+			sourceTree = "<group>";
+		};
+		98AA478B2C382761007E3E14 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				98AA47892C38274B007E3E14 /* login */,
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98AA47882C382742007E3E14 /* LoginView.swift in Sources */,
 				98AA477C2C3823C2007E3E14 /* ContentView.swift in Sources */,
 				98AA477A2C3823C2007E3E14 /* TechXploreApp.swift in Sources */,
 			);
