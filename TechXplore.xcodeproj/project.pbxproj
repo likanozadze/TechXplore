@@ -29,6 +29,7 @@
 		98AA47B02C38322A007E3E14 /* ProjectComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AA47AF2C38322A007E3E14 /* ProjectComponentView.swift */; };
 		98AA47B32C383253007E3E14 /* ProjectDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AA47B22C383253007E3E14 /* ProjectDetailView.swift */; };
 		98AA47B52C383290007E3E14 /* ProjectDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AA47B42C383290007E3E14 /* ProjectDetailViewModel.swift */; };
+		98AA47B72C3832F0007E3E14 /* ImageCarouselComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AA47B62C3832F0007E3E14 /* ImageCarouselComponentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		98AA47AF2C38322A007E3E14 /* ProjectComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectComponentView.swift; sourceTree = "<group>"; };
 		98AA47B22C383253007E3E14 /* ProjectDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailView.swift; sourceTree = "<group>"; };
 		98AA47B42C383290007E3E14 /* ProjectDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailViewModel.swift; sourceTree = "<group>"; };
+		98AA47B62C3832F0007E3E14 /* ImageCarouselComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCarouselComponentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 				98AA479C2C382943007E3E14 /* PasswordView.swift */,
 				98AA479E2C382957007E3E14 /* PrimaryButtonView.swift */,
 				98AA47AF2C38322A007E3E14 /* ProjectComponentView.swift */,
+				98AA47B62C3832F0007E3E14 /* ImageCarouselComponentView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				98AA47932C382838007E3E14 /* TitleSubtitleComponentView.swift in Sources */,
 				98AA47902C3827EB007E3E14 /* NetworkManager.swift in Sources */,
 				98AA47972C382871007E3E14 /* NavigationManager.swift in Sources */,
+				98AA47B72C3832F0007E3E14 /* ImageCarouselComponentView.swift in Sources */,
 				98AA477C2C3823C2007E3E14 /* ContentView.swift in Sources */,
 				98AA47B32C383253007E3E14 /* ProjectDetailView.swift in Sources */,
 				98AA47B02C38322A007E3E14 /* ProjectComponentView.swift in Sources */,
