@@ -25,7 +25,6 @@ struct ProjectListView: View {
     }
 }
 
-
 struct ProjectRowView: View {
     let project: Project
     

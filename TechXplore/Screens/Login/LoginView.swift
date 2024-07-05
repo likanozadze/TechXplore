@@ -27,9 +27,7 @@ struct LoginView: View {
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-        
     }
-    
     
     // MARK: - View Components
     
