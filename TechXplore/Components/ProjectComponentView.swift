@@ -48,14 +48,14 @@ struct ProjectComponentView: View {
             if let businessImage = business.businessImage {
                 Image(uiImage: businessImage)
                             .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 100, height: 100)
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 120, height: 100)
                             .cornerRadius(10)
             } else {
                         Image("building")
                             .resizable()
                             .scaledToFill()
-                            .frame(width: 100, height: 100)
+                            .frame(width: 120, height: 100)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                     }
                 }

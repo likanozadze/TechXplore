@@ -18,13 +18,6 @@ struct ProjectListView: View {
             }
         }
         .navigationTitle(viewModel.companyName)
-        .navigationBarItems(trailing:
-            Button(action: {
-                presentationMode.wrappedValue.dismiss()
-            }, label: {
-                Text("Close")
-            })
-        )
     }
 }
 
@@ -36,21 +29,22 @@ struct ProjectRowView: View {
     
     var body: some View {
         HStack {
-            if let image = project.projectImage {
-                Image(uiImage: image)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 100, height: 100)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-            } else {
-                Image(systemName: "photo")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 100, height: 100)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
+            HStack(alignment: .top) {
+                if let image = project.projectImage {
+                    Image(uiImage: image)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 100, height: 100)
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                } else {
+                    Image(systemName: "photo")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 100, height: 100)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                }
+                
             }
-            
-            
             VStack(alignment: .leading, spacing: 10) {
                 Text(project.name)
                     .font(.headline)
@@ -60,18 +54,27 @@ struct ProjectRowView: View {
                     .lineLimit(2)
                 
                 HStack {
-                    Text("Required Budget:")
-                        .font(.caption)
-                    Text("\(project.requiredBudget)")
-                        .foregroundColor(.gray)
-                    Text("/")
-                    Text("\(project.currentBudget)")
-                        .foregroundColor(.green)
+                    VStack {
+                        Text("Required")
+                            .font(.caption)
+                        Text("\(project.requiredBudget)")
+                            .foregroundColor(.gray)
+                    }
+                    Divider().padding(.vertical, 4) 
+                    
+                    VStack {
+                        Text("Accumulated")
+                            .font(.caption)
+                        Text("\(project.currentBudget)")
+                            .foregroundColor(.green)
+                    }
                 }
+            
             }
         }
-        .padding()
+        }
+       // .padding()
         
     }
     
-}
+
